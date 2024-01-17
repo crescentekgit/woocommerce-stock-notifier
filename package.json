@@ -1,0 +1,28 @@
+{
+  "name": "woocommerce-stock-notifier",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "^26.19.0"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.4",
+    "axios": "^1.6.5",
+    "react-csv": "^2.2.2",
+    "react-data-table-component": "^7.5.4",
+    "react-router-dom": "^6.21.1",
+    "react-select": "^5.8.0",
+    "react-spinners": "^0.13.8",
+    "rsuite": "^5.49.0"
+  }
+}

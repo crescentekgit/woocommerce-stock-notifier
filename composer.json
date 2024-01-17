@@ -1,0 +1,9 @@
+{
+    "name": "dev/woocommerce-stock-notifier",
+    "autoload": {
+        "psr-4": {
+            "Dev\\WoocommerceStockNotifier\\": "src/"
+        }
+    },
+    "require": {}
+}

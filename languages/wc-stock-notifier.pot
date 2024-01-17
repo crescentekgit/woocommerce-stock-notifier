@@ -1,0 +1,547 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Woocommerce Stock Notifier\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-16 07:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.6; wp-6.4.2\n"
+"X-Domain: wc-stock-notifier"
+
+#: includes/wc-stock-notifier-setting-functions.php:223
+msgid ""
+"%customer_email% is already registered for %product_title%. Please attempt a "
+"different email address."
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:225
+msgid "%customer_email% is successfully unregistered."
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:226
+msgid "%no_of_subscribed% people already subscribed"
+msgstr ""
+
+#: includes/wc-stock-notifier-core-functions.php:7
+#, php-format
+msgid ""
+"%sProduct Stock Manager & Notifier for WooCommerce is inactive.%s The "
+"%sWooCommerce plugin%s must be active for the Product Stock Manager & "
+"Notifier for WooCommerce to work. Please %sinstall & activate WooCommerce%s"
+msgstr ""
+
+#: classes/class-wc-stock-notifier.php:307
+msgid "-"
+msgstr ""
+
+#: classes/emails/class-wc-stock-notifier-admin-email.php:64
+msgid "A Customer has subscribed a product on {site_title}"
+msgstr ""
+
+#: classes/emails/class-wc-stock-notifier-admin-email.php:30
+msgid ""
+"Admin will get a notification email when customer subscribe any out of stock "
+"product"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:134
+msgid "All"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:15
+msgid "Allow Subscriptions with Active Backorders"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:146
+msgid "Background"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:147
+msgid "Border"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:152
+msgid "Border Radius"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:153
+msgid "Border Size"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:9
+msgid "Configure Basic Stock Notifier settings. "
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:78
+msgid "Configure form settings."
+msgstr ""
+
+#: classes/emails/class-wc-stock-notifier-subscriber-confirmation-email.php:29
+msgid "Confirm subscriber"
+msgstr ""
+
+#: templates/emails/stock_notifier_admin_email.php:45 
+#: templates/emails/stock_notifier_subscriber_confirmation.php:44 
+#: templates/emails/stock_notifier_email.php:45
+msgid "Customer Details"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:136
+msgid "Customization Settings"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:144
+msgid "Customize message that appears after user submits the form."
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:126
+msgid "Date"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:140
+msgid "DD-MM-YYYY ~ DD-MM-YYYY"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:131
+msgid "Demo Form"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:100
+msgid ""
+"Descriptive text guiding users on the purpose of providing their email "
+"address above the email entry field."
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:29
+msgid "Display Subscriber Count for Out of Stock Items"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:167
+msgid "Download CSV"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:102 
+#: templates/emails/stock_notifier_admin_email.php:47 
+#: templates/emails/stock_notifier_subscriber_confirmation.php:46 
+#: templates/emails/stock_notifier_email.php:47
+msgid "Email"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:91
+msgid "Email Field Placeholder"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:172
+msgid "Email Validation Error"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:21
+msgid ""
+"Enabling this setting allows users to subscribe to out-of-stock products, "
+"even when the backorder option is enabled."
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:35
+msgid ""
+"Enabling this setting shows the subscriber count on the single product page."
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:218
+msgid "Enter your email"
+msgstr ""
+
+#: templates/emails/stock_notifier_admin_email.php:43 
+#: templates/emails/stock_notifier_subscriber_confirmation.php:42 
+#: templates/emails/stock_notifier_email.php:43
+msgid "Following is the product link : "
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:151
+msgid "Font Size"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:76
+msgid "Form Customization"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:144
+msgid "Form Description"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:7
+msgid "General"
+msgstr ""
+
+#: templates/emails/stock_notifier_admin_email.php:15 
+#: templates/emails/plain/stock_notifier_admin_email.php:13
+msgid ""
+"Hi there. A customer has subscribed a product on your shop. Product details "
+"are shown below for your reference:"
+msgstr ""
+
+#: templates/emails/stock_notifier_email.php:15 
+#: templates/emails/plain/stock_notifier_email.php:13
+msgid ""
+"Hi there. You have subscribed a product. Your subscribed product is "
+"available now. Product details are shown below for your reference:"
+msgstr ""
+
+#: templates/emails/stock_notifier_subscriber_confirmation.php:14 
+#: templates/emails/plain/stock_notifier_subscriber_confirmation.php:13
+msgid ""
+"Hi there. You have successfully subscribed a product. We will inform you "
+"when the product becomes available. Product details are shown below for your "
+"reference:"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:148
+msgid "Hover Background"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:149
+msgid "Hover Border"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:150
+msgid "Hover Text"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:180
+msgid "Interested Person(s)"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:92
+msgid "It will represent email field placeholder text."
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:229
+msgid "Kindly check your inbox to confirm the subscription."
+msgstr ""
+
+#: classes/class-wc-stock-notifier.php:298 
+#: classes/class-wc-stock-notifier-admin.php:137
+msgid "Mail Sent"
+msgstr ""
+
+#. %s: count
+#: classes/class-wc-stock-notifier.php:71
+#, php-format
+msgid "Mail Sent <span class=\"count\">(%s)</span>"
+msgid_plural "Mail Sent <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/wc-stock-notifier-setting-functions.php:109
+msgid "Modify the subscribe button text. By default we display Notify Me."
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:179
+msgid ""
+"Modify the text that confirms user that they have successful unsubscribe."
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:117
+msgid "Modify the un-subscribe button text. By default we display Unsubscribe."
+msgstr ""
+
+#: classes/class-wc-stock-notifier.php:293 
+#: classes/class-wc-stock-notifier.php:315
+msgid "No"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:85 
+#: includes/wc-stock-notifier-setting-functions.php:124
+msgid "no_label"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:125
+msgid "Notifier Box Customizer"
+msgstr ""
+
+#: classes/emails/class-wc-stock-notifier-admin-email.php:29
+msgid "Notify admin"
+msgstr ""
+
+#: classes/emails/class-wc-stock-notifier-alert-email.php:29
+msgid "Notify customer when their subscribed product becomes in stock"
+msgstr ""
+
+#: classes/emails/class-wc-stock-notifier-subscriber-confirmation-email.php:30
+msgid "Notify customer when they subscribe a product"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:220
+msgid "Notify me"
+msgstr ""
+
+#: classes/emails/class-wc-stock-notifier-alert-email.php:28
+msgid "Notify Subscriber"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:226
+msgid "Number of Interested Person(s)"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:245
+msgid "Number of Interested Person(s) : "
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:170
+msgid ""
+"Personalize the message shown to users when they try to subscribe with an "
+"invalid email address."
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:48
+msgid ""
+"Personalize the notification text to let users know about the quantity of "
+"subscribers for out-of-stock item. Note: Use %no_of_subscribed% as number of "
+"interest/subscribed persons."
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:224
+msgid "Please enter a valid email ID and try again."
+msgstr ""
+
+#: classes/class-wc-stock-notifier-frontend.php:84
+msgid "Please try again."
+msgstr ""
+
+#: templates/emails/stock_notifier_admin_email.php:25 
+#: templates/emails/stock_notifier_subscriber_confirmation.php:24 
+#: templates/emails/stock_notifier_email.php:25
+msgid "Price"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-frontend.php:82
+msgid "Processing..."
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:114 
+#: templates/emails/stock_notifier_admin_email.php:24 
+#: templates/emails/stock_notifier_subscriber_confirmation.php:23 
+#: templates/emails/stock_notifier_email.php:24
+msgid "Product"
+msgstr ""
+
+#: templates/emails/stock_notifier_admin_email.php:20 
+#: templates/emails/stock_notifier_subscriber_confirmation.php:19 
+#: templates/emails/stock_notifier_email.php:20
+msgid "Product Details"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:219
+msgid "Receive in-stock notifications for this."
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:70
+msgid "Recipient Email for New Subscriber"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:120
+msgid "Registered User"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:53
+msgid "Remove Admin Email"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:59
+msgid "Remove admin email from stock alert receivers list."
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:46
+msgid "Remove Subscribers"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:89
+#, php-format
+msgid "Removed subscribers from %s product."
+msgid_plural "Removed subscribers from %s products."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/wc-stock-notifier-setting-functions.php:163
+msgid "Repeated Subscription Alert"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:138
+msgid "Search by Email"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:139
+msgid "Search by Product Name"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:69
+msgid ""
+"Set the email address to receive notifications when a user subscribes to an "
+"out-of-stock product. You can add multiple comma-separated emails.<br/> "
+"Default: The admin's email is set as the receiver. Exclude the admin's email "
+"from the list to exclude admin from receiving these notifications."
+msgstr ""
+
+#. parent slug
+#. page title
+#: admin/class-wc-stock-notifier-settings.php:30 
+#: admin/class-wc-stock-notifier-settings.php:31
+msgid "Settings"
+msgstr ""
+
+#: classes/class-wc-stock-notifier.php:356
+msgid "Settings Saved"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-frontend.php:83
+msgid "Some error occurs"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:108
+msgid "Status"
+msgstr ""
+
+#: admin/class-wc-stock-notifier-settings.php:19 
+#: admin/class-wc-stock-notifier-settings.php:20
+msgid "Stock Notifier"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:142
+msgid "Submission Messages"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:145
+msgid "Submit Button Text"
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:135
+msgid "Subscribe"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:108
+msgid "Subscribe Button"
+msgstr ""
+
+#: classes/class-wc-stock-notifier.php:301
+msgid "Subscribed"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:46
+msgid "Subscriber Count Notification Message"
+msgstr ""
+
+#: admin/class-wc-stock-notifier-settings.php:39
+msgid "Subscriber List"
+msgstr ""
+
+#: admin/class-wc-stock-notifier-settings.php:40
+msgid "Subscriber List "
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:102
+msgid "Subscription Purpose Description"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:153
+msgid "Successful Form Submission"
+msgstr ""
+
+#. Author of the plugin
+msgid "test"
+msgstr ""
+
+#. Description of the plugin
+msgid "Test dev."
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:86
+msgid "Text Customization"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:222
+msgid ""
+"Thank you for expressing interest in %product_title%. We will notify you via "
+"email once it is back in stock."
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:228
+msgid ""
+"This email address is ban in our site, kindly use another email address."
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:227
+msgid "This email domain is ban in our site, kindly use another email domain."
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:161
+msgid ""
+"Tip: Enhance personalization by incorporating %product_title% for dynamic "
+"product titles and %customer_email% for individual customer emails."
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:152
+msgid ""
+"Tip: Utilize %product_title% for dynamic product titles and %customer_email% "
+"for personalized customer email addresses in your messages."
+msgstr ""
+
+#: classes/class-wc-stock-notifier-admin.php:136 
+#: includes/wc-stock-notifier-setting-functions.php:221
+msgid "Unsubscribe"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:116
+msgid "Unsubscribe Button"
+msgstr ""
+
+#: includes/wc-stock-notifier-setting-functions.php:181
+msgid "Unsubscribe Confirmation"
+msgstr ""
+
+#: classes/class-wc-stock-notifier.php:304
+msgid "Unsubscribed"
+msgstr ""
+
+#: classes/class-wc-stock-notifier.php:66
+msgctxt "wcstocknotifier"
+msgid "Mail Sent"
+msgstr ""
+
+#: classes/class-wc-stock-notifier.php:75
+msgctxt "wcstocknotifier"
+msgid "Subscribed"
+msgstr ""
+
+#: classes/class-wc-stock-notifier.php:84
+msgctxt "wcstocknotifier"
+msgid "Unsubscribed"
+msgstr ""
+
+#: classes/emails/class-wc-stock-notifier-admin-email.php:74 
+#: classes/emails/class-wc-stock-notifier-alert-email.php:77 
+#: classes/emails/class-wc-stock-notifier-subscriber-confirmation-email.php:74
+msgid "Welcome to {site_title}"
+msgstr ""
+
+#. Name of the plugin
+msgid "Woocommerce Stock Notifier"
+msgstr ""
+
+#: classes/class-wc-stock-notifier.php:293
+msgid "Yes"
+msgstr ""
+
+#: classes/emails/class-wc-stock-notifier-subscriber-confirmation-email.php:64
+msgid "You have subscribed a product on {site_title}"
+msgstr ""
+
+#: classes/emails/class-wc-stock-notifier-alert-email.php:67
+msgid "Your Subscribed product on {site_title} is available now"
+msgstr ""

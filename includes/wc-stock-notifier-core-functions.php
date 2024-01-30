@@ -73,7 +73,7 @@ if ( ! function_exists( 'wcsn_update_product_subscriber' ) ) {
             'post_type'     => 'WcStockNotifier',
             'post_status'   => $status,
         );
-        $id = wp_update_post($args);
+        $id = wp_update_post( $args );
         return $id;
     }
 }
@@ -119,7 +119,7 @@ if ( ! function_exists( 'wcsn_insert_product_subscriber_email_trigger' ) ) {
         if ( get_wc_stock_notifier_plugin_settings( 'is_admin_email_remove' ) ) {
             $admin_email = '';
         } else {
-            $admin_email = get_option('admin_email');
+            $admin_email = get_option( 'admin_email' );
         }
 
         if ( get_wc_stock_notifier_plugin_settings( 'additional_emails' ) ) {
@@ -139,10 +139,10 @@ if ( ! function_exists( 'wcsn_insert_product_subscriber_email_trigger' ) ) {
 if ( ! function_exists( 'wcsn_is_already_subscribed' ) ) {
     function wcsn_is_already_subscribed( $subscriber_email, $product_id ) {
         $args = array(
-            'post_type' => 'WcStockNotifier',
-            'fields' => 'ids',
-            'posts_per_page' => 1,
-            'post_status' => 'wcsn_subscribed',
+            'post_type'         => 'WcStockNotifier',
+            'fields'            => 'ids',
+            'posts_per_page'    => 1,
+            'post_status'       => 'wcsn_subscribed',
         );
         $meta_query = array(
             'relation' => 'AND',

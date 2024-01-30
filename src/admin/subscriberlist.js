@@ -460,7 +460,9 @@ class SubscriberList extends Component {
                     />
                   </div>
                 ) : (
-                  <PropagateLoader color="#36d7b7" />
+                  <div className="loader_sign">
+                    <PropagateLoader color="#e35047" />
+                  </div>
                 )}
               </div>
             </div>

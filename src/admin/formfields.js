@@ -928,7 +928,7 @@ export default class FormFields extends React.Component {
         );
       }
 
-      return m.type === "section" || m.label === "no_label" ? (
+      return m.type === "section" || m.label === "no_label" || m.type === "customize_table" ? (
         input
       ) : (
         <div key={"g" + key} className="wcsn-form-group">

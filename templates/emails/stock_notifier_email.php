@@ -32,8 +32,8 @@ $is_prices_including_tax = get_option( 'woocommerce_prices_include_tax' );
 			</th>
 			<th scope="col" style="text-align:left; border: 1px solid #eee;">
 				<?php 
-					echo wp_kses_post( $product_data['price']); 
-					echo ( isset( $is_prices_including_tax ) && ($is_prices_including_tax != "yes" )) ? WC()->countries->ex_tax_or_vat() : WC()->countries->inc_tax_or_vat(); 
+					echo wp_kses_post( $product_data['price'] ); 
+					echo ( isset( $is_prices_including_tax ) && ( $is_prices_including_tax != "yes" ) ) ? WC()->countries->ex_tax_or_vat() : WC()->countries->inc_tax_or_vat(); 
 				?>
 			</th>
 		</tr>

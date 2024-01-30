@@ -315,7 +315,7 @@ class WC_Stock_Notifier {
     }
     
     public function wc_stock_notifier_fetch_admin_tabs() {
-		$wcsn_admin_tabs_data = wcsn_stockalert_admin_tabs() ? wcsn_stockalert_admin_tabs() : [];
+		$wcsn_admin_tabs_data = wcsn_stock_notifier_admin_tabs() ? wcsn_stock_notifier_admin_tabs() : [];
         return rest_ensure_response( $wcsn_admin_tabs_data );
 	}
 

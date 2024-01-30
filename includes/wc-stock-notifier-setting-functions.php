@@ -1,8 +1,8 @@
 <?php
-if (!function_exists('wcsn_stockalert_admin_tabs')) {
-    function wcsn_stockalert_admin_tabs(){
+if (!function_exists('wcsn_stock_notifier_admin_tabs')) {
+    function wcsn_stock_notifier_admin_tabs(){
         $default_massages = get_wc_stock_notifier_default_massages();
-        $wcsn_settings_page_endpoint = apply_filters('woo_stockalert_endpoint_fields_before_value', array(
+        $wcsn_settings_page_endpoint = apply_filters('woo_stock_notifier_endpoint_fields_before_value', array(
             'general' => array(
                 'tablabel'        => __( 'General', 'wc-stock-notifier' ),
                 'apiurl'          => 'save_admin_settings',

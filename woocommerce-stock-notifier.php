@@ -42,21 +42,6 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 	);
 }
 
-
-// add_filter('plugin_action_links_' . plugin_basename( __FILE__ ), 'WC_Stock_Notifier_settings');
-
-// function WC_Stock_Notifier_settings($links) {
-//     $plugin_links = array(
-//         '<a href="' . admin_url('admin.php?page=woo-stock-alert-setting#&tab=settings&subtab=general') . '">' . __('Settings', 'wc-stock-notifier') . '</a>',
-//         '<a href="https://multivendorx.com/support-forum/forum/product-stock-manager-notifier-for-woocommerce/?utm_source=wordpress.org&utm_medium=freelandingpage&utm_campaign=products-stock-manager" target="_blank">' . __('Support', 'wc-stock-notifier') . '</a>',
-//         '<a href="https://multivendorx.com/docs/knowledgebase/products-stock-manager-notifier-for-woocommerce/?utm_source=wordpress.org&utm_medium=freelandingpage&utm_campaign=products-stock-manager" target="_blank">' . __('Docs', 'wc-stock-notifier') . '</a>'
-//     );
-//     if (apply_filters('is_stock_alert_pro_inactive', true)) {
-//     	$links['go_pro'] = '<a href="' . WC_STOCK_NOTIFIER_PRO_SHOP_URL . '" class="stock-alert-pro-plugin" target="_blank">' . __('Get Pro', 'wc-stock-notifier') . '</a>';
-//     }
-//     return array_merge($plugin_links, $links);
-// }
-
 if ( ! class_exists( 'WC_Stock_Notifier' ) && WC_Stock_Notifier_Dependencies::woocommerce_plugin_active_check() ) {
 	require_once('classes/class-wc-stock-notifier.php');
 	global $WC_Stock_Notifier;

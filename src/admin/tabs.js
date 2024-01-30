@@ -127,7 +127,9 @@ export default class TabSection extends Component {
                     )
                   )
                 ) : (
-                  <PropagateLoader color="#36d7b7" />
+                  <div className="loader_sign">
+                    <PropagateLoader color="#e35047" />
+                  </div>
                 )}
               </div>
             </div>

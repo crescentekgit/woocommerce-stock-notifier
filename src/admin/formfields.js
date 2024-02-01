@@ -1,161 +1,159 @@
-/* global wcsnLocalizer */
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import axios from "axios";
 
-export default class FormFields extends React.Component {
-  state = {};
-  constructor(props) {
-    super(props);
-    this.state = {
-      open_model: false,
-      datamclist: [],
-      from_loading: false,
-      errordisplay: "",
-    };
+const FormFields = (props) => {
+  const [state, setState] = useState({
+    open_model: false,
+    datamclist: [],
+    from_loading: false,
+    errordisplay: ""
+  });
 
-    this.handleMouseEnter = this.handleMouseEnter.bind(this);
-    this.handleMouseLeave = this.handleMouseLeave.bind(this);
-    this.handleGetMailchimpList = this.handleGetMailchimpList.bind(this);
-    this.handleOnChangeColor = this.handleOnChangeColor.bind(this);
-    this.handleGetButtonColorState = this.handleGetButtonColorState.bind(this);
-    this.handleOnChangerange = this.handleOnChangerange.bind(this);
-    this.handleDragEnd = this.handleDragEnd.bind(this);
-  }
+  const useQuery = () => {
+    return new URLSearchParams(useLocation().hash);
+  };
 
-  handleDragEnd() {
-    if (this.props.submitbutton && this.props.submitbutton === "false") {
+  const handleDragEnd = () => {
+    if (props.submitbutton && props.submitbutton === "false") {
       setTimeout(() => {
-        this.onSubmit("");
+        onSubmit("");
       }, 10);
     }
-  }
+  };
 
-  handleOnChangerange(e, target) {
-    this.setState({
+  const handleOnChangerange = (e, target) => {
+    setState((prevState) => ({
+      ...prevState,
       subscribe_button_font_size:
-        target === "subscribe_button_font_size"
+        target === 'subscribe_button_font_size'
           ? e.target.value
-          : this.state.subscribe_button_font_size,
+          : prevState.subscribe_button_font_size,
       subscribe_button_border_radious:
-        target === "subscribe_button_border_radious"
+        target === 'subscribe_button_border_radious'
           ? e.target.value
-          : this.state.subscribe_button_border_radious,
+          : prevState.subscribe_button_border_radious,
       subscribe_button_border_size:
-        target === "subscribe_button_border_size"
+        target === 'subscribe_button_border_size'
           ? e.target.value
-          : this.state.subscribe_button_border_size,
-    });
-  }
+          : prevState.subscribe_button_border_size,
+    }));
+  };
 
-  handleMouseEnter(e) {
-    this.setState({
+  const handleMouseEnter = () => {
+    setState((prevState) => ({
+      ...prevState,
       hover_on: true,
-    });
-  }
+    }));
+  };
 
-  handleMouseLeave(e) {
-    this.setState({
+  const handleMouseLeave = () => {
+    setState((prevState) => ({
+      ...prevState,
       hover_on: false,
-    });
-  }
+    }));
+  };
 
-  handleGetButtonColorState() {
+  const handleGetButtonColorState = () => {
     axios
-      .get(
-        `${wcsnLocalizer.apiUrl}/wc_stocknotifier/v1/get_button_data`
-      )
+      .get(`${wcsnLocalizer.apiUrl}/wc_stocknotifier/v1/get_button_data`)
       .then((response) => {
-        this.setState({
+        setState((prevState) => ({
+          ...prevState,
           form_description_text_color: response.data.form_description_text_color,
-          subscribe_button_background_color: response.data.subscribe_button_background_color,
-          subscribe_button_border_color: response.data.subscribe_button_border_color,
+          subscribe_button_background_color:
+            response.data.subscribe_button_background_color,
+          subscribe_button_border_color:
+            response.data.subscribe_button_border_color,
           subscribe_button_text_color: response.data.subscribe_button_text_color,
-          subscribe_button_background_color_onhover: response.data.subscribe_button_background_color_onhover,
-          subscribe_button_text_color_onhover: response.data.subscribe_button_text_color_onhover,
-          subscribe_button_border_color_onhover: response.data.subscribe_button_border_color_onhover,
-
+          subscribe_button_background_color_onhover:
+            response.data.subscribe_button_background_color_onhover,
+          subscribe_button_border_color_onhover:
+            response.data.subscribe_button_border_color_onhover,
+          subscribe_button_text_color_onhover:
+            response.data.subscribe_button_text_color_onhover,
           subscribe_button_font_size: response.data.subscribe_button_font_size,
-          subscribe_button_border_radious: response.data.subscribe_button_border_radious,
+          subscribe_button_border_radious:
+            response.data.subscribe_button_border_radious,
           subscribe_button_border_size: response.data.subscribe_button_border_size,
-        });
+        }));
       });
-  }
+  };
 
-  handleOnChangeColor(e, target) {
-    this.setState({
+  const handleOnChangeColor = (e, target) => {
+    setState((prevState) => ({
+      ...prevState,
       form_description_text_color:
         target === "form_description_text_color"
           ? e.target.value
-          : this.state.form_description_text_color,
-
+          : prevState.form_description_text_color,
       subscribe_button_text_color:
         target === "subscribe_button_text_color"
           ? e.target.value
-          : this.state.subscribe_button_text_color,
-
+          : prevState.subscribe_button_text_color,
       subscribe_button_background_color:
         target === "subscribe_button_background_color"
           ? e.target.value
-          : this.state.subscribe_button_background_color,
-
+          : prevState.subscribe_button_background_color,
       subscribe_button_border_color:
         target === "subscribe_button_border_color"
           ? e.target.value
-          : this.state.subscribe_button_border_color,
-
+          : prevState.subscribe_button_border_color,
       subscribe_button_background_color_onhover:
         target === "subscribe_button_background_color_onhover"
           ? e.target.value
-          : this.state.subscribe_button_background_color_onhover,
-
+          : prevState.subscribe_button_background_color_onhover,
       subscribe_button_border_color_onhover:
         target === "subscribe_button_border_color_onhover"
           ? e.target.value
-          : this.state.subscribe_button_border_color_onhover,
-
+          : prevState.subscribe_button_border_color_onhover,
       subscribe_button_text_color_onhover:
         target === "subscribe_button_text_color_onhover"
           ? e.target.value
-          : this.state.subscribe_button_text_color_onhover,
-    });
+          : prevState.subscribe_button_text_color_onhover,
+    }));
 
-    if (this.props.submitbutton && this.props.submitbutton === "false") {
+    if (props.submitbutton && props.submitbutton === "false") {
       setTimeout(() => {
-        this.onSubmit("");
+        onSubmit("");
       }, 10);
     }
-  }
+  };
 
-  handleGetMailchimpList() {
-    
-  }
+  const handleGetMailchimpList = () => {
+    // implement logic for getting mailchimp list
+  };
 
-  onSubmit = (e) => {
-    // block to refresh pages
+  const onSubmit = (e) => {
     const prop_submitbutton =
-      this.props.submitbutton && this.props.submitbutton === "false"
-        ? ""
-        : "true";
+      props.submitbutton && props.submitbutton === "false" ? "" : "true";
     if (prop_submitbutton) {
       e.preventDefault();
     }
-    this.setState({ from_loading: true });
+    setState((prevState) => ({
+      ...prevState,
+      from_loading: true,
+    }));
 
     axios({
-      method: this.props.method,
-      url: wcsnLocalizer.apiUrl + "/" + this.props.url,
+      method: props.method,
+      url: `${wcsnLocalizer.apiUrl}/${props.url}`,
+      headers: { 'X-WP-Nonce' : wcsnLocalizer.nonce },
       data: {
-        model: this.state,
-        modulename: this.props.modulename,
+        model: state,
+        modulename: props.modulename,
       },
     }).then((res) => {
-      this.setState({
+      setState((prevState) => ({
+        ...prevState,
         from_loading: false,
         errordisplay: res.data.error,
-      });
+      }));
       setTimeout(() => {
-        this.setState({ errordisplay: "" });
+        setState((prevState) => ({
+          ...prevState,
+          errordisplay: "",
+        }));
       }, 2000);
       if (res.data.redirect_link) {
         window.location.href = res.data.redirect_link;
@@ -163,16 +161,17 @@ export default class FormFields extends React.Component {
     });
   };
 
-  componentDidMount() {
-    if (this.props.modulename == "form_personalize") {
-      this.handleGetButtonColorState();
+  useEffect(() => {
+    if (props.modulename === "form_personalize") {
+      handleGetButtonColorState();
     }
 
-    //Fetch all datas
-    this.props.model.map((m) => {
-      this.setState({
+    // Fetch all datas
+    props.model.map((m) => {
+      setState((prevState) => ({
+        ...prevState,
         [m.key]: m.database_value,
-      });
+      }));
     });
 
     let $ = jQuery;
@@ -197,83 +196,82 @@ export default class FormFields extends React.Component {
         bubble.style.left = (range.value / max) * 100 + "%";
       }
     });
-  }
+  }, []); // Empty dependency array to run once on mount
 
-  onChange = (e, key, type = "single", from_type = "", array_values = []) => {
+  const onChange = (e, key, type = "single", from_type = "", array_values = []) => {
     if (type === "single") {
       if (from_type === "select") {
-        this.setState(
-          {
-            [key]: array_values[e.index],
-          },
-          () => {}
-        );
+        setState((prevState) => ({
+          ...prevState,
+          [key]: array_values[e.index],
+        }));
       } else if (from_type === "mailchimp_select") {
-        this.setState(
-          {
-            [key]: array_values[e.index],
-          },
-          () => {}
-        );
+        setState((prevState) => ({
+          ...prevState,
+          [key]: array_values[e.index],
+        }));
       } else if (from_type === "multi-select") {
-        this.setState(
-          {
-            [key]: e,
-          },
-          () => {}
-        );
+        setState((prevState) => ({
+          ...prevState,
+          [key]: e,
+        }));
       } else if (from_type === "text_api") {
-        this.setState(
-          {
-            [key]: e.target.value,
-          },
-          () => {}
-        );
-        this.setState({
+        setState((prevState) => ({
+          ...prevState,
+          [key]: e.target.value,
+        }));
+        setState((prevState) => ({
+          ...prevState,
           datamclist: [],
-        });
-        this.setState({
+        }));
+        setState((prevState) => ({
+          ...prevState,
           selected_mailchimp_list: "",
-        });
-      } else {
-        this.setState(
-          {
-            [key]: e.target.value,
-          },
-          () => {}
-        );
+        }));
+      } else if (from_type === 'checkbox') {
+        setState((prevState) => ({
+          ...prevState, 
+          [key]: e.target.checked 
+        }));
+       } else {
+        setState((prevState) => ({
+          ...prevState,
+          [key]: e.target.value,
+        }));
       }
     } else {
-      // Array of values (e.g. checkbox): TODO: Optimization needed.
-      const found = this.state[key]
-        ? this.state[key].find((d) => d === e.target.value)
+      // Array of values (e.g., checkbox): TODO: Optimization needed.
+      const found = state[key]
+        ? state[key].find((d) => d === e.target.value)
         : false;
 
       if (found) {
-        const data = this.state[key].filter((d) => {
+        const data = state[key].filter((d) => {
           return d !== found;
         });
-        this.setState({
+        setState((prevState) => ({
+          ...prevState,
           [key]: data,
-        });
+        }));
       } else {
-        const others = this.state[key] ? [...this.state[key]] : [];
-        this.setState({
+        const others = state[key] ? [...state[key]] : [];
+        setState((prevState) => ({
+          ...prevState,
           [key]: [e.target.value, ...others],
-        });
+        }));
       }
     }
-    if (this.props.submitbutton && this.props.submitbutton === "false") {
-      if (key != "password") {
+    if (props.submitbutton && props.submitbutton === "false") {
+      if (key !== "password") {
         setTimeout(() => {
-          this.onSubmit("");
+          onSubmit("");
         }, 10);
       }
     }
   };
 
-  renderForm = () => {
-    const model = this.props.model;
+  const renderForm = () => {
+    const model = props.model;
     const formUI = model.map((m, index) => {
       const key = m.key;
       const type = m.type || "text";
@@ -286,9 +284,9 @@ export default class FormFields extends React.Component {
 
       const target = key;
 
-      value = this.state[target] || "";
+      value = state[target] || "";
 
-      if (m.restricted_page && m.restricted_page === this.props.location) {
+      if (m.restricted_page && m.restricted_page === useQuery().get("tab")) {
         return false;
       }
 
@@ -300,9 +298,9 @@ export default class FormFields extends React.Component {
       // for select selection
       if (
         m.depend &&
-        this.state[m.depend] &&
-        this.state[m.depend].value &&
-        this.state[m.depend].value != m.dependvalue
+        state[m.depend] &&
+        state[m.depend].value &&
+        state[m.depend].value !== m.dependvalue
       ) {
         return false;
       }
@@ -310,9 +308,9 @@ export default class FormFields extends React.Component {
       // for radio button selection
       if (
         m.depend &&
-        this.state[m.depend] &&
-        !this.state[m.depend].value &&
-        this.state[m.depend] != m.dependvalue
+        state[m.depend] &&
+        !state[m.depend].value &&
+        state[m.depend] !== m.dependvalue
       ) {
         return false;
       }
@@ -320,8 +318,8 @@ export default class FormFields extends React.Component {
       // for checkbox selection
       if (
         m.depend_checkbox &&
-        this.state[m.depend_checkbox] &&
-        this.state[m.depend_checkbox].length === 0
+        state[m.depend_checkbox] &&
+        state[m.depend_checkbox].length === 0
       ) {
         return false;
       }
@@ -329,13 +327,13 @@ export default class FormFields extends React.Component {
       // for checkbox selection
       if (
         m.not_depend_checkbox &&
-        this.state[m.not_depend_checkbox] &&
-        this.state[m.not_depend_checkbox].length > 0
+        state[m.not_depend_checkbox] &&
+        state[m.not_depend_checkbox].length > 0
       ) {
         return false;
       }
 
-      if (m.depend && !this.state[m.depend]) {
+      if (m.depend && !state[m.depend]) {
         return false;
       }
 
@@ -352,7 +350,7 @@ export default class FormFields extends React.Component {
               name={name}
               value={value}
               onChange={(e) => {
-                this.onChange(e, target);
+                onChange(e, target);
               }}
             />
             {m.desc ? (
@@ -378,9 +376,9 @@ export default class FormFields extends React.Component {
                   className="wcsn-setting-color-picker"
                   type="color"
                   onChange={(e) => {
-                    this.handleOnChangeColor(e, "form_description_text_color");
+                    handleOnChangeColor(e, "form_description_text_color");
                   }}
-                  value={this.state.form_description_text_color}
+                  value={state.form_description_text_color}
                 />
               </div>
               <div className="wcsn-color-picker-wrap">
@@ -390,9 +388,9 @@ export default class FormFields extends React.Component {
                   className="wcsn-setting-color-picker"
                   type="color"
                   onChange={(e) => {
-                    this.handleOnChangeColor(e, "subscribe_button_text_color");
+                    handleOnChangeColor(e, "subscribe_button_text_color");
                   }}
-                  value={this.state.subscribe_button_text_color}
+                  value={state.subscribe_button_text_color}
                 />
               </div>
               <div className="wcsn-color-picker-wrap">
@@ -402,9 +400,9 @@ export default class FormFields extends React.Component {
                   className="wcsn-setting-color-picker"
                   type="color"
                   onChange={(e) => {
-                    this.handleOnChangeColor(e, "subscribe_button_background_color");
+                    handleOnChangeColor(e, "subscribe_button_background_color");
                   }}
-                  value={this.state.subscribe_button_background_color}
+                  value={state.subscribe_button_background_color}
                 />
               </div>
               <div className="wcsn-color-picker-wrap">
@@ -414,9 +412,9 @@ export default class FormFields extends React.Component {
                   className="wcsn-setting-color-picker"
                   type="color"
                   onChange={(e) => {
-                    this.handleOnChangeColor(e, "subscribe_button_border_color");
+                    handleOnChangeColor(e, "subscribe_button_border_color");
                   }}
-                  value={this.state.subscribe_button_border_color}
+                  value={state.subscribe_button_border_color}
                 />
               </div>
               <div className="wcsn-color-picker-wrap">
@@ -426,12 +424,12 @@ export default class FormFields extends React.Component {
                   className="wcsn-setting-color-picker"
                   type="color"
                   onChange={(e) => {
-                    this.handleOnChangeColor(
+                    handleOnChangeColor(
                       e,
                       "subscribe_button_background_color_onhover"
                     );
                   }}
-                  value={this.state.subscribe_button_background_color_onhover}
+                  value={state.subscribe_button_background_color_onhover}
                 />
               </div>
               <div className="wcsn-color-picker-wrap">
@@ -441,9 +439,9 @@ export default class FormFields extends React.Component {
                   className="wcsn-setting-color-picker"
                   type="color"
                   onChange={(e) => {
-                    this.handleOnChangeColor(e, "subscribe_button_border_color_onhover");
+                    handleOnChangeColor(e, "subscribe_button_border_color_onhover");
                   }}
-                  value={this.state.subscribe_button_border_color_onhover}
+                  value={state.subscribe_button_border_color_onhover}
                 />
               </div>
               <div className="wcsn-color-picker-wrap">
@@ -453,9 +451,9 @@ export default class FormFields extends React.Component {
                   className="wcsn-setting-color-picker"
                   type="color"
                   onChange={(e) => {
-                    this.handleOnChangeColor(e, "subscribe_button_text_color_onhover");
+                    handleOnChangeColor(e, "subscribe_button_text_color_onhover");
                   }}
-                  value={this.state.subscribe_button_text_color_onhover}
+                  value={state.subscribe_button_text_color_onhover}
                 />
               </div>
             </div>
@@ -470,16 +468,16 @@ export default class FormFields extends React.Component {
                     type="range"
                     min="0"
                     max="30"
-                    value={this.state.subscribe_button_font_size}
+                    value={state.subscribe_button_font_size}
                     onChange={(e) => {
-                      this.handleOnChangerange(e, "subscribe_button_font_size");
+                      handleOnChangerange(e, "subscribe_button_font_size");
                     }}
-                    onMouseUp={this.handleDragEnd}
-                    onTouchEnd={this.handleDragEnd}
+                    onMouseUp={handleDragEnd}
+                    onTouchEnd={handleDragEnd}
                   />
                   <output class="bubble">
-                    {this.state.subscribe_button_font_size
-                      ? this.state.subscribe_button_font_size
+                    {state.subscribe_button_font_size
+                      ? state.subscribe_button_font_size
                       : 0}
                     px
                   </output>
@@ -495,16 +493,16 @@ export default class FormFields extends React.Component {
                     type="range"
                     min="0"
                     max="100"
-                    value={this.state.subscribe_button_border_radious}
+                    value={state.subscribe_button_border_radious}
                     onChange={(e) => {
-                      this.handleOnChangerange(e, "subscribe_button_border_radious");
+                      handleOnChangerange(e, "subscribe_button_border_radious");
                     }}
-                    onMouseUp={this.handleDragEnd}
-                    onTouchEnd={this.handleDragEnd}
+                    onMouseUp={handleDragEnd}
+                    onTouchEnd={handleDragEnd}
                   />
                   <output class="bubble">
-                    {this.state.subscribe_button_border_radious
-                      ? this.state.subscribe_button_border_radious
+                    {state.subscribe_button_border_radious
+                      ? state.subscribe_button_border_radious
                       : 0}
                     px
                   </output>
@@ -520,16 +518,16 @@ export default class FormFields extends React.Component {
                     type="range"
                     min="0"
                     max="10"
-                    value={this.state.subscribe_button_border_size}
+                    value={state.subscribe_button_border_size}
                     onChange={(e) => {
-                      this.handleOnChangerange(e, "subscribe_button_border_size");
+                      handleOnChangerange(e, "subscribe_button_border_size");
                     }}
-                    onMouseUp={this.handleDragEnd}
-                    onTouchEnd={this.handleDragEnd}
+                    onMouseUp={handleDragEnd}
+                    onTouchEnd={handleDragEnd}
                   />
                   <output class="bubble">
-                    {this.state.subscribe_button_border_size
-                      ? this.state.subscribe_button_border_size
+                    {state.subscribe_button_border_size
+                      ? state.subscribe_button_border_size
                       : 0}
                     px
                   </output>
@@ -572,94 +570,9 @@ export default class FormFields extends React.Component {
               name={name}
               value={value}
               onChange={(e) => {
-                this.onChange(e, target);
+                onChange(e, target);
               }}
             />
-            {m.desc ? (
-              <p
-                className="wcsn-settings-metabox-description"
-                dangerouslySetInnerHTML={{ __html: m.desc }}
-              ></p>
-            ) : (
-              ""
-            )}
-          </div>
-        );
-      }
-
-      if (type === "blocktext") {
-        input = (
-          <div className="wcsn-blocktext-class">
-            {m.blocktext ? (
-              <p
-                className="wcsn-settings-metabox-description-code"
-                dangerouslySetInnerHTML={{
-                  __html: m.blocktext,
-                }}
-              ></p>
-            ) : (
-              ""
-            )}
-          </div>
-        );
-      }
-
-      if (type === "textarea") {
-        input = (
-          <div className="wcsn-setting-from-textarea">
-            <textarea
-              {...props}
-              className={m.class ? m.class : "wcsn-form-input"}
-              key={key}
-              maxLength={limit}
-              placeholder={placeholder}
-              name={name}
-              value={value}
-              rows="4"
-              cols="50"
-              onChange={(e) => {
-                this.onChange(e, target);
-              }}
-            />
-            {m.desc ? (
-              <p
-                className="wcsn-settings-metabox-description"
-                dangerouslySetInnerHTML={{ __html: m.desc }}
-              ></p>
-            ) : (
-              ""
-            )}
-          </div>
-        );
-      }
-
-      if (type === "select") {
-        const options_data = [];
-        const defaultselect = [];
-        input = m.options.map((o, index) => {
-          if (o.selected) {
-            defaultselect[index] = {
-              value: o.value,
-              label: o.label,
-              index,
-            };
-          }
-          options_data[index] = {
-            value: o.value,
-            label: o.label,
-            index,
-          };
-        });
-        input = (
-          <div className="wcsn-form-select-field-wrapper">
-            <Select
-              className={key}
-              value={value ? value : ""}
-              options={options_data}
-              onChange={(e) => {
-                this.onChange(e, m.key, "single", type, options_data);
-              }}
-            ></Select>
             {m.desc ? (
               <p
                 className="wcsn-settings-metabox-description"
@@ -673,82 +586,57 @@ export default class FormFields extends React.Component {
       }
 
       if (type === "mailchimp_select") {
-        const options_data = [];
-        const defaultselect = [];
-        var selected_val = value;
-        input = this.state.datamclist.map((o, index) => {
-          if (o.selected) {
-            defaultselect[index] = {
-              value: o.value,
-              label: o.label,
-              index,
-            };
-          }
-          options_data[index] = {
-            value: o.value,
-            label: o.label,
-            index,
-          };
-        });
         input = (
-          <div className="wcsn-form-select-field-wrapper">
-            <Select
-              className={key}
-              value={selected_val ? selected_val : ""}
-              options={options_data}
-              onChange={(e) => {
-                this.onChange(e, m.key, "single", type, options_data);
-              }}
-            ></Select>
-            {m.desc ? (
-              <p
-                className="wcsn-settings-metabox-description"
-                dangerouslySetInnerHTML={{ __html: m.desc }}
-              ></p>
-            ) : (
-              ""
-            )}
-          </div>
+          <Select
+            {...props}
+            value={state[key]}
+            onChange={(e) => {
+              onChange(e, key, "mailchimp_select", "", e.options);
+            }}
+            options={state.datamclist}
+            placeholder={placeholder}
+            className="react-select-container"
+            classNamePrefix="react-select"
+          />
         );
       }
 
-      if (type === "button") {
+      if (type === "select") {
         input = (
-          <div className="wcsn-button">
-            <input
-              className="btn default-btn"
-              type="button"
-              value="Connect to Mailchimp"
-              onClick={(e) => this.handleGetMailchimpList()}
-            />
-            {m.desc ? (
-              <p
-                className="wcsn-settings-metabox-description"
-                dangerouslySetInnerHTML={{
-                  __html: m.desc,
-                }}
-              ></p>
-            ) : (
-              ""
-            )}
-          </div>
+          <select
+            {...props}
+            value={state[key]}
+            onChange={(e) => {
+              onChange(e, key, "select", "", e.options);
+            }}
+            className="wcsn-setting-form-select"
+          >
+            <option value="" disabled>
+              {placeholder}
+            </option>
+            {props.options &&
+              props.options.map((option, i) => (
+                <option key={i} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+          </select>
         );
       }
 
-      if (type === "text_api") {
+      if (type === "textarea") {
         input = (
-          <div className="wcsn-settings-basic-input-class">
-            <input
+          <div className="wcsn-setting-from-textarea">
+            <textarea
               {...props}
-              className="wcsn-setting-form-input"
-              type={type}
+              className={m.class ? m.class : "wcsn-setting-wpeditor-class"}
               key={key}
               id={m.id}
               placeholder={placeholder}
               name={name}
               value={value}
               onChange={(e) => {
-                this.onChange(e, target, "single", type);
+                onChange(e, target);
               }}
             />
             {m.desc ? (
@@ -824,7 +712,7 @@ export default class FormFields extends React.Component {
                         checked={checked}
                         value={o.value}
                         onChange={(e) => {
-                          this.onChange(e, m.key, "multiple");
+                          onChange(e, target, 'checkbox');
                         }}
                       />
                       <label htmlFor={`wcsn-toggle-switch-${o.key}`}></label>
@@ -862,6 +750,42 @@ export default class FormFields extends React.Component {
         );
       }
 
+      if (type === "radio") {
+        input = (
+          <div className="wcsn-settings-basic-input-class wcsn-radio-wrapper">
+            {props.options &&
+              props.options.map((option, i) => (
+                <div key={i} className="wcsn-radio-option">
+                  <input
+                    {...props}
+                    className="wcsn-setting-form-radio"
+                    type={type}
+                    key={key}
+                    id={m.id + i}
+                    name={name}
+                    value={option.value}
+                    checked={value === option.value}
+                    onChange={(e) => {
+                      onChange(e, target);
+                    }}
+                  />
+                  <label htmlFor={m.id + i} className="wcsn-settings-radio-label">
+                    {option.label}
+                  </label>
+                </div>
+              ))}
+            {m.desc ? (
+              <p
+                className="wcsn-settings-metabox-description"
+                dangerouslySetInnerHTML={{ __html: m.desc }}
+              ></p>
+            ) : (
+              ""
+            )}
+          </div>
+        );
+      }
+
       if (type === "example_form") {
         input = (
           <div className="wcsn-settings-example-button-class">
@@ -870,11 +794,11 @@ export default class FormFields extends React.Component {
                 <div
                   class="example_form_alert_text"
                   style={{
-                    color: this.state.form_description_text_color,
+                    color: state.form_description_text_color,
                   }}
                 >
-                  {this.state.form_description_text
-                    ? this.state.form_description_text
+                  {state.form_description_text
+                    ? state.form_description_text
                     : wcsnLocalizer.default_form_description_text}
                 </div>
                 <div class="example_form">
@@ -882,8 +806,8 @@ export default class FormFields extends React.Component {
                     <input
                       type="text"
                       value={
-                        this.state.email_placeholder_text
-                          ? this.state.email_placeholder_text
+                        state.email_placeholder_text
+                          ? state.email_placeholder_text
                           : wcsnLocalizer.default_email_place
                       }
                       readOnly
@@ -891,34 +815,34 @@ export default class FormFields extends React.Component {
                   </div>
                   <div
                     className="example_alert_button"
-                    onMouseEnter={this.handleMouseEnter}
-                    onMouseLeave={this.handleMouseLeave}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                     style={{
                       color:
-                        this.state.hover_on && this.state.subscribe_button_text_color_onhover
-                          ? this.state.subscribe_button_text_color_onhover
-                          : this.state.subscribe_button_text_color,
-                      fontSize: this.state.subscribe_button_font_size + "px",
-                      borderRadius: this.state.subscribe_button_border_radious + "px",
-                      border: `${this.state.subscribe_button_border_size}px solid ${
-                        this.state.hover_on &&
-                        this.state.subscribe_button_border_color_onhover
-                          ? this.state.subscribe_button_border_color_onhover
-                          : this.state.subscribe_button_border_color
+                        state.hover_on && state.subscribe_button_text_color_onhover
+                          ? state.subscribe_button_text_color_onhover
+                          : state.subscribe_button_text_color,
+                      fontSize: state.subscribe_button_font_size + "px",
+                      borderRadius: state.subscribe_button_border_radious + "px",
+                      border: `${state.subscribe_button_border_size}px solid ${
+                        state.hover_on &&
+                        state.subscribe_button_border_color_onhover
+                          ? state.subscribe_button_border_color_onhover
+                          : state.subscribe_button_border_color
                       }`,
 
                       background:
-                        this.state.hover_on &&
-                        this.state.subscribe_button_background_color_onhover
-                          ? this.state.subscribe_button_background_color_onhover
-                          : this.state.subscribe_button_background_color,
+                        state.hover_on &&
+                        state.subscribe_button_background_color_onhover
+                          ? state.subscribe_button_background_color_onhover
+                          : state.subscribe_button_background_color,
                       verticalAlign: "middle",
                       textDecoration: "none",
                       width: "fit-content",
                     }}
                   >
-                    {this.state.subscribe_button_text
-                      ? this.state.subscribe_button_text
+                    {state.subscribe_button_text
+                      ? state.subscribe_button_text
                       : wcsnLocalizer.default_subscribe_button_text}
                   </div>
                 </div>
@@ -928,48 +852,49 @@ export default class FormFields extends React.Component {
         );
       }
 
-      return m.type === "section" || m.label === "no_label" || m.type === "customize_table" ? (
-        input
-      ) : (
-        <div key={"g" + key} className="wcsn-form-group">
-          <label
-            className="wcsn-settings-form-label"
-            key={"l" + key}
-            htmlFor={key}
-          >
-            <p dangerouslySetInnerHTML={{ __html: m.label }}></p>
-          </label>
-          <div className="wcsn-settings-input-content">{input}</div>
-        </div>
+      return (
+        m.type === "section" || m.label === "no_label" || m.type === "customize_table" ? (
+          input
+        ) : (
+          <div key={"g" + key} className="wcsn-form-group">
+            <label
+              className="wcsn-settings-form-label"
+              key={"l" + key}
+              htmlFor={key}
+            >
+              <p dangerouslySetInnerHTML={{ __html: m.label }}></p>
+            </label>
+            <div className="wcsn-settings-input-content">{input}</div>
+          </div>
+        )
       );
     });
     return formUI;
   };
 
-  render() {
-    return (
-      <div className="wcsn-dynamic-fields-wrapper">
-        {this.state.errordisplay ? (
+  return (
+    <div className="wcsn-dynamic-fields-wrapper">
+        {state.errordisplay ? (
           <div className="wcsn-notice-display-title">
             <i className="wcsn-stock-notifier icon-success-notification"></i>
-            {this.state.errordisplay}
+            {state.errordisplay}
           </div>
         ) : (
           ""
         )}
+      <form
+        onSubmit={(e) => {
+          onSubmit(e);
+        }}
+        className="wcsn-dynamic-form"
+      >
+        <div className="wcsn-submit-form">
+          <input type="submit" value="Save" class="wcsn-button submit-btn " />
+        </div>
+        {renderForm()}
+      </form>
+    </div>
+  );
+};
 
-        <form
-          className="wcsn-dynamic-form"
-          onSubmit={(e) => {
-            this.onSubmit(e);
-          }}
-        >
-          <div className="wcsn-submit-form">
-            <input type="submit" value="Save" class="wcsn-button submit-btn " />
-          </div>
-          {this.renderForm()}
-        </form>
-      </div>
-    );
-  }
-}
+export default FormFields;

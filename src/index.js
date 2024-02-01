@@ -1,4 +1,6 @@
+
 import { render } from '@wordpress/element';
+import { BrowserRouter} from 'react-router-dom';
 import StockNotifier from "./admin/stocknotifier";
 
 /**
@@ -6,4 +8,4 @@ import StockNotifier from "./admin/stocknotifier";
  */
 import './style/main.scss';
 // Render the App component into the DOM
-render(<StockNotifier />, document.getElementById('wcsn-admin-stocknotifier'));
+render(<BrowserRouter><StockNotifier /></BrowserRouter>, document.getElementById('wcsn-admin-stocknotifier'));

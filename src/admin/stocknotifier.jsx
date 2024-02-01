@@ -1,21 +1,12 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, useLocation } from "react-router-dom";
+import React from "react";
+import { useLocation } from "react-router-dom";
 import WCSNTab from "./tabs";
 import SubscriberList from "./subscriberlist";
 
-class StockNotifier_Backend extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.Stocknotifier_backend = this.Stocknotifier_backend.bind(this);
-  }
+const StockNotifierBackend = () => {
+  const useQuery = () => new URLSearchParams(useLocation().hash);
 
-  useQuery() {
-    return new URLSearchParams(useLocation().hash);
-  }
-
-  Stocknotifier_backend() {
-    // For active submneu pages
+  const stockNotifierBackend = () => {
     const $ = jQuery;
     const menuRoot = $("#toplevel_page_" + "wcsn-stock-notifier-setting");
 
@@ -37,7 +28,6 @@ class StockNotifier_Backend extends Component {
         $(el).parent().addClass("current");
       } else {
         $(el).parent().removeClass("current");
-        // if user enter page=catalog
         if (
           $(el).parent().hasClass("wp-first-item") &&
           currentPath === "admin.php?page=wcsn-stock-notifier-setting"
@@ -46,14 +36,16 @@ class StockNotifier_Backend extends Component {
         }
       }
     });
-    const location = this.useQuery();
+
+    const location = useQuery();
+
     if (location.get("tab") && location.get("tab") === "settings") {
       return (
         <WCSNTab
           model="stock_notifier-settings"
           query_name={location.get("tab")}
           subtab={location.get("subtab")}
-          funtion_name={this}
+          funtion_name={stockNotifierBackend}
         />
       );
     } else if (
@@ -67,18 +59,15 @@ class StockNotifier_Backend extends Component {
           model="stock_notifier-settings"
           query_name="settings"
           subtab="general"
-          funtion_name={this}
+          funtion_name={stockNotifierBackend}
         />
       );
     }
-  }
+  };
 
-  render() {
-    return (
-      <Router>
-        <this.Stocknotifier_backend />
-      </Router>
-    );
-  }
-}
-export default StockNotifier_Backend;
+  return (
+      stockNotifierBackend()
+  );
+};
+
+export default StockNotifierBackend;

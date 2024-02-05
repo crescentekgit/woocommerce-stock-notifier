@@ -41,7 +41,7 @@ class WC_Stock_Notifier_Install {
             'subscription_success'              => $default_massages['subscription_success'],
             'subscription_email_exist'          => $default_massages['subscription_email_exist'],
             'subscription_invalid_email'        => $default_massages['subscription_invalid_email'],
-            'alert_unsubscribe_message'         => $default_massages['alert_unsubscribe_message'],
+            'subscription_unsubscribe'          => $default_massages['subscription_unsubscribe'],
         );
 
         if ( ! get_option( 'wcsn_form_submit_tab_settings' ) ) {

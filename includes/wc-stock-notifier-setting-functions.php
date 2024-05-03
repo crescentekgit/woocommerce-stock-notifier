@@ -80,18 +80,6 @@ if ( ! function_exists( 'wcsn_stock_notifier_admin_tabs' ) ) {
                 'submenu'         => 'settings',
                 'modulename'      =>  [
                     [
-                        'key'       => 'demo_form',
-                        'type'      => 'example_form',
-                        'class'     => 'wcsn-setting-own-class',
-                        'label'     => __( 'Demo Form', 'wc-stock-notifier' )
-                    ],
-                    [
-                        'key'       => 'separator_content',
-                        'type'      => 'heading',
-                        'label'     => __( 'no_label', 'wc-stock-notifier' ),
-                        'blocktext' => __( 'Notifier Form Text Customizer', 'wc-stock-notifier' ),
-                    ],
-                    [
                         'key'               => 'email_placeholder_text',
                         'type'              => 'text',
                         'label'             => __( 'Email Field Placeholder', 'wc-stock-notifier' ),
@@ -128,6 +116,18 @@ if ( ! function_exists( 'wcsn_stock_notifier_admin_tabs' ) ) {
                         'type'      => 'heading',
                         'label'     => __( 'no_label', 'wc-stock-notifier' ),
                         'blocktext' => __( 'Notifier Form Customizer', 'wc-stock-notifier' ),
+                    ],
+                    [
+                        'key'       => 'demo_form',
+                        'type'      => 'example_form',
+                        'class'     => 'wcsn-setting-own-class',
+                        'label'     => __( 'Demo Form', 'wc-stock-notifier' )
+                    ],
+                    [
+                        'key'       => 'separator_content',
+                        'type'      => 'heading',
+                        'label'     => __( 'no_label', 'wc-stock-notifier' ),
+                        'blocktext' => __( ' ', 'wc-stock-notifier' ),
                     ],
                     [
                         'key'       => 'button_color_section',

@@ -31,62 +31,10 @@ class WC_Stock_Notifier_Frontend {
     public function frontend_scripts() {
         global $WC_Stock_Notifier;
         $frontend_script_path = $WC_Stock_Notifier->plugin_url . 'assets/frontend/js/';
-        $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '';
-        $stock_interest = $description_text_html = $subscription_subscription_button_html = $border_size = $button_css = '';
-        $settings_array = get_wc_stock_notifier_form_settings_array();
-
-        if ( ! empty( $settings_array['form_description_text'] ) ) {
-            $description_text_html = '<h5 style="color:' . $settings_array['form_description_text_color'] . '" class="subscribe_for_interest_text">' . $settings_array['form_description_text'] . '</h5>';
-        } else {
-            $description_text_html = '<h5 class="subscribe_for_interest_text">' . $settings_array['form_description_text'] . '</h5>';
-        }
-
-        $border_size = ( ! empty( $settings_array['subscribe_button_border_size'] ) ) ? $settings_array['subscribe_button_border_size'].'px' : '1px';
-
-        if ( ! empty( $settings_array['subscribe_button_background_color'] ) )
-            $button_css .= "background:" . $settings_array['subscribe_button_background_color'] . "; ";
-        if ( ! empty( $settings_array['subscribe_button_text_color'] ) )
-            $button_css .= "color:" . $settings_array['subscribe_button_text_color'] . "; ";
-        if ( ! empty( $settings_array['subscribe_button_border_color'] ) )
-            $button_css .= "border: " . $border_size . " solid " . $settings_array['subscribe_button_border_color'] . "; ";
-        if ( ! empty( $settings_array['subscribe_button_font_size'] ) )
-            $button_css .= "font-size:" . $settings_array['subscribe_button_font_size'] . "px; ";
-        if ( ! empty( $settings_array['subscribe_button_border_redious'] ) )
-            $button_css .= "border-radius:" . $settings_array['subscribe_button_border_redious'] . "px;";
-
-
-        if ( ! empty( $button_css ) ) {
-            $subscription_button_html = '<button style="' . $button_css .'" class="subscribe_button subscriber_button_hover" name="subscriber_button">' . $settings_array['subscribe_button_text'] . '</button>';
-            $unsubscribe_subscription_button_html = '<button class="unsubscribe_button" style="' . $button_css .'">' . $settings_array['unsubscribe_button_text'] . '</button>';
-        } else {
-            $subscription_button_html = '<button class="subscribe_button" name="subscriber_button">' . $settings_array['subscribe_button_text'] . '</button>';
-            $unsubscribe_subscription_button_html = '<button class="unsubscribe_button">' . $settings_array['unsubscribe_button_text'] . '</button>';
-        }
-
-        if ( function_exists( 'is_product' ) ) {
-            if ( is_product() ) {
-                // Enqueue your frontend javascript from here
-                wp_enqueue_script( 'wcsn_js', $frontend_script_path . 'frontend' . $suffix . '.js', array( 'jquery' ), $WC_Stock_Notifier->version, true );
-            
-                wp_localize_script( 'wcsn_js', 'wcsn_data', array( 'ajax_url' => admin_url( 'admin-ajax.php', 'relative' ),
-                    'subscribe_form_field'          => wcsn_form_fileds(),
-                    'additional_fields'             => apply_filters( 'wc_stock_notifier_form_additional_fields', [] ),
-                    'description_text_html'         => $description_text_html,
-                    'subscription_button_html'      => $subscription_button_html,
-                    'subscription_success'          => $settings_array['subscription_success'],
-                    'subscription_email_exist'      => $settings_array['subscription_email_exist'],
-                    'subscription_invalid_email'    => $settings_array['subscription_invalid_email'],
-                    'ban_email_domain_text'         => $settings_array['ban_email_domain_text'],
-                    'ban_email_address_text'        => $settings_array['ban_email_address_text'],
-                    'double_opt_in_success'         => $settings_array['double_opt_in_success'],
-                    'processing'                    => __( 'Processing', 'wc-stock-notifier' ),
-                    'error_occurs'                  => __( 'Some error occurs', 'wc-stock-notifier' ),
-                    'try_again'                     => __( 'Please try again.', 'wc-stock-notifier' ),
-                    'unsubscribe_button_html'       => $unsubscribe_subscription_button_html,
-                    'subscription_unsubscribe'      => $settings_array['subscription_unsubscribe'],
-                    'recaptcha_enabled'             => apply_filters( 'wcsn_stock_notifier_enabled_recaptcha_', false )
-                ));
-            }
+        $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+        if ( is_product() || is_shop() || is_product_category() ) {
+            // Enqueue your frontend javascript from here
+            wp_enqueue_script( 'wcsn_js', $frontend_script_path . 'frontend' . $suffix . '.js', array( 'jquery' ), $WC_Stock_Notifier->version, true ); 
         }
     }
 
@@ -94,11 +42,9 @@ class WC_Stock_Notifier_Frontend {
         global $WC_Stock_Notifier;
         $frontend_style_path = $WC_Stock_Notifier->plugin_url . 'assets/frontend/css/';
         $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-        if ( function_exists( 'is_product' ) ) {
-            if (is_product()) {
-                // Enqueue your frontend stylesheet from here
-                wp_enqueue_style( 'wcsn_frontend_css', $frontend_style_path . 'frontend' . $suffix . '.css', array(), $WC_Stock_Notifier->version );
-            }
+        if ( is_product() || is_shop() || is_product_category() ) {
+            // Enqueue your frontend stylesheet from here
+            wp_enqueue_style( 'wcsn_frontend_css', $frontend_style_path . 'frontend' . $suffix . '.css', array(), $WC_Stock_Notifier->version );
         }
     }
 
@@ -250,6 +196,8 @@ class WC_Stock_Notifier_Frontend {
         }
 
         $localization_data = array(
+            'ajax_url'                      => admin_url( 'admin-ajax.php', 'relative' ),
+            'additional_fields'             => apply_filters( 'wc_stock_notifier_form_additional_fields', [] ),
             'description_text_html'         => $description_text_html,
             'subscription_button_html'      => $subscription_button_html,
             'subscription_success'          => $settings_array['subscription_success'],
@@ -260,7 +208,11 @@ class WC_Stock_Notifier_Frontend {
             'double_opt_in_success'         => $settings_array['double_opt_in_success'],
             'unsubscribe_button_html'       => $unsubscribe_subscription_button_html,
             'subscription_success'          => $settings_array['subscription_success'],
+            'subscription_unsubscribe'      => $settings_array['subscription_unsubscribe'],
             'subscribe_form_field'          => $subscribe_form_field,
+            'processing'                    => __( 'Processing', 'wc-stock-notifier' ),
+            'error_occurs'                  => __( 'Some error occurs', 'wc-stock-notifier' ),
+            'try_again'                     => __( 'Please try again.', 'wc-stock-notifier' ),
             'recaptcha_enabled'             => apply_filters( 'wcsn_stock_notifier_enabled_recaptcha', false ),
         );
 

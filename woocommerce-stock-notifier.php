@@ -1,15 +1,15 @@
 <?php
 /**
  * Plugin Name: Woocommerce Stock Notifier
- * Plugin URI: 
+ * Plugin URI: https://wordpress.org/plugins/woocommerce-stock-notifier
  * Description: Test dev.
- * Author: test
+ * Author: Crescentek
  * Version: 1.0
  * Requires at least: 5.0
  * Tested up to: 6.4.1
  * WC requires at least: 7.2
  * WC tested up to: 8.3.1
- * Author URI: 
+ * Author URI: https://www.crescentek.com/
  * Text Domain: wc-stock-notifier
  * Domain Path: /languages/
  */

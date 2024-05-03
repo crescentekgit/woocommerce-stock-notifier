@@ -1,8 +1,8 @@
 <?php
-if (!function_exists('wcsn_stock_notifier_admin_tabs')) {
-    function wcsn_stock_notifier_admin_tabs(){
+if ( ! function_exists( 'wcsn_stock_notifier_admin_tabs' ) ) {
+    function wcsn_stock_notifier_admin_tabs() {
         $default_massages = get_wc_stock_notifier_default_massages();
-        $wcsn_settings_page_endpoint = apply_filters('woo_stock_notifier_endpoint_fields_before_value', array(
+        $wcsn_settings_page_endpoint = apply_filters( 'wc_stock_notifier_endpoint_fields_before_value', array(
             'general' => array(
                 'tablabel'        => __( 'General', 'wc-stock-notifier' ),
                 'apiurl'          => 'save_admin_settings',
@@ -13,7 +13,7 @@ if (!function_exists('wcsn_stock_notifier_admin_tabs')) {
                 	[
                         'key'       => 'is_backorders_enable',
                         'label'     => __("Allow Subscriptions with Backorders", 'wc-stock-notifier'),
-                        'class'     => 'woo-toggle-checkbox',
+                        'class'     => 'wcsn-toggle-checkbox',
                         'type'      => 'checkbox',
                         'options'   => array(
                             array(
@@ -27,7 +27,7 @@ if (!function_exists('wcsn_stock_notifier_admin_tabs')) {
                     [
                         'key'      => 'is_subscriber_count_enable',
                         'label'    => __( "Display Subscriber Count for Out of Stock Product", 'wc-stock-notifier' ),
-                        'class'    => 'woo-toggle-checkbox',
+                        'class'    => 'wcsn-toggle-checkbox',
                         'type'     => 'checkbox',
                         'options'  => array(
                             array(
@@ -51,7 +51,7 @@ if (!function_exists('wcsn_stock_notifier_admin_tabs')) {
                     [
 						'key'     => 'is_admin_email_remove',
 						'label'   => __( "Remove Admin Email", 'wc-stock-notifier' ),
-						'class'   => 'mvx-toggle-checkbox',
+						'class'   => 'wcsn-toggle-checkbox',
 						'type'    => 'checkbox',
 						'options' => array(
                             array(
@@ -89,7 +89,7 @@ if (!function_exists('wcsn_stock_notifier_admin_tabs')) {
                         'key'       => 'separator_content',
                         'type'      => 'heading',
                         'label'     => __( 'no_label', 'wc-stock-notifier' ),
-                        'blocktext' => __( 'Notifier Text Customizer', 'wc-stock-notifier' ),
+                        'blocktext' => __( 'Notifier Form Text Customizer', 'wc-stock-notifier' ),
                     ],
                     [
                         'key'               => 'email_placeholder_text',
@@ -212,7 +212,7 @@ if (!function_exists('wcsn_stock_notifier_admin_tabs')) {
     }
 }
 
-if ( ! function_exists('get_wc_stock_notifier_default_massages' ) ) {
+if ( ! function_exists( 'get_wc_stock_notifier_default_massages' ) ) {
     function get_wc_stock_notifier_default_massages() {
         $default_massages = array(
             'email_placeholder_text'            => __( 'Enter your email', 'wc-stock-notifier' ),

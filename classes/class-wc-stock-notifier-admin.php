@@ -157,7 +157,7 @@ class WC_Stock_Notifier_Admin {
             $default_massages = get_wc_stock_notifier_default_massages();
             wp_enqueue_script( 'wc-stock-notifier-script', $WC_Stock_Notifier->plugin_url . 'build/index.js', array( 'wp-element' ), $WC_Stock_Notifier->version, true );
             wp_localize_script( 'wc-stock-notifier-script', 'wcsnLocalizer', apply_filters('wc_stock_notifier_admin_default_text', [
-                'apiUrl'                            => home_url('/wp-json'),
+                'apiUrl'                            => untrailingslashit(get_rest_url()),
                 'nonce'                             => wp_create_nonce('wp_rest'),
                 'default_form_description_text'     => $default_massages['form_description_text'],
                 'default_email_place'               => $default_massages['email_placeholder_text'],
